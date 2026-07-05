@@ -3,6 +3,7 @@
 Simulador interactivo de un sistema de control de iluminación en lazo cerrado, con controlador Proporcional-Derivativo (PD) por umbral.
 
 **Materia:** Tecnologías para la Automatización - K4011 (UTN-FRBA)
+
 **Autoras:** Priscila D'Antoni / Lucrecia Vattimo
 
 ---
