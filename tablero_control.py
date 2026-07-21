@@ -58,8 +58,8 @@ class Tablero:
     # ── Estado ───────────────────────────────────────────────────────────────
     def reset(self, *_):
         self.t         = 0.0
-        self.lux_led   = float(self.setpoint)
-        self.pwm       = self.setpoint / K_PROC
+        self.lux_led   = 0.0
+        self.pwm       = 0.0
         self.err_prev  = 0.0
         self.t_scan    = 0.0
         self.u_raw     = 0.0
@@ -310,6 +310,7 @@ class Tablero:
             err = np.array(self.h_err)
             pwm = np.array(self.h_pwm)
             sat = (np.abs(err) > self.tol) & ((pwm <= 0.5) | (pwm >= 99.5))
+            sat[t < 2.0] = False
             tra = (np.abs(err) > self.tol) & ~sat
             for ax in (self.ax_proc, self.ax_err, self.ax_ctrl):
                 ymin, ymax = ax.get_ylim()
